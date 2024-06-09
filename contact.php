@@ -18,7 +18,7 @@ if(isset($_POST['name'],$_POST['email'],$_POST['message'])){
     try {
         // Server settings
         $mail->isSMTP();
-        $mail->Host = 'smtp.example.com'; // Set the SMTP server to send through
+        $mail->Host = 'smtp.gmail.com'; // Set the SMTP server to send through
         $mail->SMTPAuth = true;
         $mail->Username = 'brackets.developer17@gmail.com'; // SMTP username
         $mail->Password = 'mowjyhrzorioplqg'; // SMTP password
@@ -39,7 +39,7 @@ if(isset($_POST['name'],$_POST['email'],$_POST['message'])){
         $mail->AltBody = "Name: $name\nEmail: $email\nMessage: $message";
 
         $mail->send();
-        echo 'Message has been sent';
+        echo "<script>alert('Submitted Successfully! Thank you';window.location.href = 'blueticksinnovations.com';)</script>";
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
