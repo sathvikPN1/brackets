@@ -30,7 +30,7 @@ if(isset($_POST['name'],$_POST['email'],$_POST['message'])){
         $mail->addAddress('brackets.developer17@gmail.com', 'bharath'); // Add a recipient
         $mail->addAddress('officialblueticksinnovations@gmail.com', 'sathvik '); // Add a recipient
         $mail->addAddress('bharathac7@gmail.com', 'bharath'); // Add a recipient
-        $mail->addAddress('sathvinarayanapps@gmail.com', 'sathvik '); // Add a recipient
+        $mail->addAddress('sathviknarayanapps@gmail.com', 'sathvik '); // Add a recipient
 
         // Content
         $mail->isHTML(true); // Set email format to HTML
@@ -38,8 +38,12 @@ if(isset($_POST['name'],$_POST['email'],$_POST['message'])){
         $mail->Body    = "Name: $name<br>Email: $email<br>Message: $message";
         $mail->AltBody = "Name: $name\nEmail: $email\nMessage: $message";
 
-        $mail->send();
-        echo "<script>alert('Submitted Successfully! Thank you';window.location.href = 'blueticksinnovations.com';)</script>";
+        if($mail->send()){
+            header("Location:https://blueticksinnovations.com");
+ 
+            exit;
+        }
+       
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
@@ -51,4 +55,6 @@ else
 {
     echo"notset";
 }
+
+
 ?>
